@@ -1,0 +1,35 @@
+---
+# This playbook can be used to execute integration tests for
+# the role located in:
+#
+# tests/integration/targets/dcnm_bootflash
+#
+# Modify the vars section with details for your testing setup.
+#
+- hosts: ndfc
+  gather_facts: no
+  connection: ansible.netcommon.httpapi
+  vars:
+    # testcase: dcnm_bootflash_deleted_specific
+    testcase: dcnm_bootflash_deleted_wildcard
+    # testcase: dcnm_bootflash_query_specific
+    # testcase: dcnm_bootflash_query_wildcard
+    # switch_username: "{{ lookup('ansible.builtin.env', 'NDFC_USERNAME') }}"
+    # switch_password: "{{ lookup('ansible.builtin.env', 'NDFC_PASSWORD') }}"
+    # switch1: 172.22.150.112
+    # switch2: 172.22.150.113
+    # The vars below are included in the role's defaults/main.yaml
+    # If it is desired to override the defaults, uncomment and
+    # modify these.
+    # switch1_file1: air.ndfc_ut
+    # switch1_file2: earth.ndfc_ut
+    # switch1_file3: fire.ndfc_ut
+    # switch1_file4: water.ndfc_ut
+    # switch2_file1: black.ndfc_ut
+    # switch2_file2: blue.ndfc_ut
+    # switch2_file3: green.ndfc_ut
+    # switch2_file4: red.ndfc_ut
+    # wildcard_filepath: "*:/*.ndfc_ut"
+
+  roles:
+    - dcnm_bootflash

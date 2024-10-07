@@ -1,0 +1,38 @@
+---
+# This playbook can be used to execute the dcnm_maintenance_mode test role.
+#
+# Modify the vars section with details for testing setup.
+#
+# NOTES:
+# 1. For all test cases, ensure that
+#    Fabric Controller -> Admin -> System Settings -> Feature Management
+#    "Fabric Builder" is checked.
+- hosts: dcnm
+  gather_facts: no
+  connection: ansible.netcommon.httpapi
+
+  vars:
+    # testcase: 00_setup_fabrics_1x_rw
+    # testcase: 00_setup_fabrics_2x_rw
+    # testcase: 01_merged_maintenance_mode_deploy_no_wait_switch_level
+    # testcase: 02_merged_normal_mode_deploy_no_wait_switch_level
+    # testcase: 03_merged_maintenance_mode_deploy_no_wait_top_level
+    # testcase: 04_merged_normal_mode_deploy_no_wait_top_level
+    # testcase: 05_merged_maintenance_mode_deploy_wait_top_level
+    # testcase: 06_merged_normal_mode_deploy_wait_top_level
+    # testcase: 07_merged_maintenance_mode_deploy_wait_switch_level
+    # testcase: 08_merged_normal_mode_deploy_wait_switch_level
+    testcase: 09_merged_maintenance_mode_no_deploy
+    fabric_name_1: VXLAN_EVPN_Fabric
+    fabric_type_1: VXLAN_EVPN
+    fabric_name_2: VXLAN_EVPN_MSD_Fabric
+    fabric_type_2: VXLAN_EVPN_MSD
+    fabric_name_3: LAN_CLASSIC_Fabric
+    fabric_type_3: LAN_CLASSIC
+    fabric_name_4: IPFM_Fabric
+    fabric_type_4: IPFM
+    leaf_1: 172.22.150.103
+    leaf_2: 172.22.150.104
+
+  roles:
+    - dcnm_maintenance_mode

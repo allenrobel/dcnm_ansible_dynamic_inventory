@@ -1,0 +1,12 @@
+- name: test dcnm_fabric_requests
+  hosts: ndfc
+  tasks:
+    -   name: query fabric (requests)
+        cisco.dcnm.dcnm_fabric_requests:
+            state: query
+            config:
+              - FABRIC_NAME: f1
+        register: result
+    -   debug:
+            var: result
+

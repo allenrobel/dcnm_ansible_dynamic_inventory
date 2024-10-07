@@ -1,0 +1,13 @@
+- name: test dcnm_fabrics_vrfs
+  hosts: ndfc
+  tasks:
+    -   name: QUERY - TEST - Query the fabrics_vrfs
+        cisco.dcnm.dcnm_fabrics_vrfs_requests:
+            state: query
+            config:
+              fabric_name: f1
+              vrf_name: v2
+        register: result
+    -   debug:
+            var: result
+
