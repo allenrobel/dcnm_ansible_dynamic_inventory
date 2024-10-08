@@ -10,13 +10,13 @@ ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 
 ## Role-specific environment variables
 
-### NDFC_LEAF_1
+### NDFC_LEAF_1_IP4
 - Read into ansible_switch_1
 
-### NDFC_LEAF_2
+### NDFC_LEAF_2_IP4
 - Read into ansible_switch_2
 
-### NDFC_SPINE_1
+### NDFC_SPINE_1_IP4
 - Read into ansible_switch_3
 
 ### NDFC_TESTCASE
