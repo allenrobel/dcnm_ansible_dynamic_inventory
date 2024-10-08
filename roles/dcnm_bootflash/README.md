@@ -14,7 +14,7 @@ export ANSIBLE_INVENTORY=/path/to/dynamic_inventory_env.py
 ansible-playbook delete_files.yaml -i $ANSIBLE_INVENTORY 
 ```
 
-## Test file deletion for explicitely-named file
+## Test file deletion for explicitly-named file
 
 ```bash
 export ANSIBLE_INVENTORY=/path/to/dynamic_inventory_env.py
