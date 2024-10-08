@@ -1,12 +1,13 @@
 # Usage for playbooks/roles/*
 
-## dynamic inventory
-
-These roles use a dynamic inventory generated with ``playbooks/roles/dynamic_inventory_env.py``.
+```bash
+cd ansible_collections/cisco/dcnm/playbooks/roles/ROLE_NAME
+ansible-playbook dcnm_tests.yaml -i ../dynamic_inventory_env.py
+```
 
 ``dynamic_inventory_env.py`` expects the following environment variables to be defined.
 
-If an environment variable is not defined, and a default is defined below, then the script assigns that default.
+If an environment variable is not defined, and a default is defined below, then the default will be used.
 
 ## Environment variables used in most roles
 
