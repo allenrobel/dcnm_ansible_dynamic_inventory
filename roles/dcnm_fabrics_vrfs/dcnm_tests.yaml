@@ -4,6 +4,10 @@
 #
 # ./tests/integration/targets/dcnm_fabric/tests/*.yaml
 #
+# Usage
+#
+# ansible-playbook dcnm_tests.yaml -i ../dynamic_inventory_env.py
+#
 # Modify the vars section with details for your testing setup.
 #
 # NOTES:
@@ -19,7 +23,7 @@
   connection: ansible.netcommon.httpapi
 
   vars:
-    testcase: dcnm_fabrics_vrfs_query.yaml
+    # testcase: dcnm_fabrics_vrfs_query
     fabric_name: f1
 
   roles:

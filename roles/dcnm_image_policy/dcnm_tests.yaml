@@ -4,6 +4,10 @@
 #
 # tests/integration/targets/dcnm_image_policy
 #
+# Usage
+#
+# ansible-playbook dcnm_tests.yaml -i ../dynamic_inventory_env.py
+#
 # Modify the vars section with details for your testing setup.
 #
 # NOTES:
@@ -12,18 +16,14 @@
   connection: ansible.netcommon.httpapi
 
   vars:
-    testcase: dcnm_image_policy_deleted
+    # Uncomment ONE testcase to override environment variable NDFC_TESTCASE
+    # testcase: dcnm_image_policy_deleted
     # testcase: dcnm_image_policy_deleted_all_policies
-    testcase: dcnm_image_policy_merged
+    # testcase: dcnm_image_policy_merged
     # testcase: dcnm_image_policy_overridden
     # testcase: dcnm_image_policy_query
     # testcase: dcnm_image_policy_replaced
-    spine1: 172.22.150.114
-    spine2: 172.22.150.115
-    leaf1: 172.22.150.103
-    leaf2: 172.22.150.104
-    leaf3: 172.22.150.108
-    leaf4: 172.22.150.109
+    #
     # for dcnm_image_policy role
     image_policy_1: "KR5M"
     image_policy_2: "NR1F"

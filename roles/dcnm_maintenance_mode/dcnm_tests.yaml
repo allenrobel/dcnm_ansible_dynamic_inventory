@@ -12,6 +12,7 @@
   connection: ansible.netcommon.httpapi
 
   vars:
+    # Uncomment ONE testcase to override environment variable NDFC_TESTCASE
     # testcase: 00_setup_fabrics_1x_rw
     # testcase: 00_setup_fabrics_2x_rw
     # testcase: 01_merged_maintenance_mode_deploy_no_wait_switch_level
@@ -22,7 +23,11 @@
     # testcase: 06_merged_normal_mode_deploy_wait_top_level
     # testcase: 07_merged_maintenance_mode_deploy_wait_switch_level
     # testcase: 08_merged_normal_mode_deploy_wait_switch_level
-    testcase: 09_merged_maintenance_mode_no_deploy
+    # testcase: 09_merged_maintenance_mode_no_deploy
+    # Uncomment to override environment variable NDFC_LEAF_1_IP4
+    # leaf_1: 172.22.150.103
+    # Uncomment to override environment variable NDFC_LEAF_2_IP4
+    # leaf_2: 172.22.150.104
     fabric_name_1: VXLAN_EVPN_Fabric
     fabric_type_1: VXLAN_EVPN
     fabric_name_2: VXLAN_EVPN_MSD_Fabric
@@ -31,8 +36,6 @@
     fabric_type_3: LAN_CLASSIC
     fabric_name_4: IPFM_Fabric
     fabric_type_4: IPFM
-    leaf_1: 172.22.150.103
-    leaf_2: 172.22.150.104
 
   roles:
     - dcnm_maintenance_mode

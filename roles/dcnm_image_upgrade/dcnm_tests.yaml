@@ -12,20 +12,24 @@
   connection: ansible.netcommon.httpapi
 
   vars:
+    # Uncomment ONE testcase to override environment variable NDFC_TESTCASE
     # testcase: 00_setup_create_fabric
     # testcase: 01_setup_add_switches_to_fabric
     # testcase: 02_setup_replace_image_policies
     # testcase: deleted
     # testcase: deleted_1x_switch
-    testcase: merged_global_config
+    # testcase: merged_global_config
     # testcase: merged_override_global_config
     # testcase: merged_override_global_config_1x_switch
     # testcase: query
-    fabric_name: LAN_Classic_Fabric
-    leaf1: 172.22.150.103
-    leaf2: 172.22.150.104
-    spine1: 172.22.150.113
+    # Uncomment to override environment variable NDFC_LEAF_1
+    # leaf1: 172.22.150.103
+    # Uncomment to override environment variable NDFC_LEAF_2
+    # leaf2: 172.22.150.104
+    # Uncomment to override environment variable NDFC_SPINE_1
+    # spine1: 172.22.150.113
     # for dcnm_image_policy and dcnm_image_upgrade roles
+    fabric_name: LAN_Classic_Fabric
     image_policy_1: NR1F
     image_policy_2: NR2F
     # for dcnm_image_policy role
@@ -35,9 +39,6 @@
     nxos_image_2: nxos64-cs.10.3.2.F.bin
     nxos_release_1: 10.3.1_nxos64-cs_64bit
     nxos_release_2: 10.3.2_nxos64-cs_64bit
-    # epld_image_1: n9000-epld.10.2.5.M.img
-    # nxos_image_1: nxos64-cs.10.2.5.M.bin
-    # nxos_release_1: 10.2.5_nxos64-cs_64bit
     # for dcnm_image_upgrade role
     fabric_name_1: "{{ fabric_name }}"
     ansible_switch_1: "{{ leaf1 }}"

@@ -6,18 +6,27 @@
 #
 # Modify the vars section with details for your testing setup.
 #
+# Usage
+#
+# ansible-playbook dcnm_tests.yaml -i ../dynamic_inventory_env.py
+#
 - hosts: ndfc
   gather_facts: no
   connection: ansible.netcommon.httpapi
   vars:
+    # Uncomment ONE testcase to override environment variable NDFC_TESTCASE
     # testcase: dcnm_bootflash_deleted_specific
-    testcase: dcnm_bootflash_deleted_wildcard
+    # testcase: dcnm_bootflash_deleted_wildcard
     # testcase: dcnm_bootflash_query_specific
     # testcase: dcnm_bootflash_query_wildcard
-    # switch_username: "{{ lookup('ansible.builtin.env', 'NDFC_USERNAME') }}"
-    # switch_password: "{{ lookup('ansible.builtin.env', 'NDFC_PASSWORD') }}"
-    # switch1: 172.22.150.112
-    # switch2: 172.22.150.113
+    # Uncomment to override environment variable NDFC_USERNAME
+    # switch_username: my_switch_username
+    # Uncomment to override environment variable NDFC_PASSWORD
+    # switch_password: my_switch_password
+    # Uncomment to override environment variable NDFC_SWITCH_1_IP4
+    # switch1: 10.1.1.1
+    # Uncomment to override environment variable NDFC_SWITCH_2_IP4
+    # switch2: 10.1.1.2
     # The vars below are included in the role's defaults/main.yaml
     # If it is desired to override the defaults, uncomment and
     # modify these.
