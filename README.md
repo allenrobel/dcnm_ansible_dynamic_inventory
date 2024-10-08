@@ -21,7 +21,14 @@ If an environment variable is not defined, and a default is defined below, then 
 
 - The password for the ND/NDFC controller
 - Roles
-    - all
+    - dcnm_bootflash
+        - ``switch_password``
+    - dcnm_image_policy
+        - ``switch_password``
+    - dcnm_image_upgrade
+        - ``switch_password``
+    - dcnm_maintenance_mode
+        - ``nxos_password``
 
 ### NDFC_TESTCASE
 
@@ -39,7 +46,14 @@ If an environment variable is not defined, and a default is defined below, then 
 - Default
     - admin
 - Roles
-    - all
+    - dcnm_bootflash
+        - ``switch_username``
+    - dcnm_image_policy
+        - ``switch_username``
+    - dcnm_image_upgrade
+        - ``switch_username``
+    - dcnm_maintenance_mode
+        - ``nxos_username``
 
 ## Environment variables used in a subset of roles
 
