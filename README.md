@@ -46,56 +46,136 @@ If an environment variable is not defined, and a default is defined below, then 
 ### NDFC_BGW_1_IP4
 
 - The IPv4 address of the first BGW switch
+- Default
+    - 10.1.1.1
 - Roles
     - Currently none
 
 ### NDFC_BGW_2_IP4
 
 - The IPv4 address of the second BGW switch
+- Default
+    - 10.1.1.2
 - Roles
     - Currently none
 
 ### NDFC_LEAF_1_IP4
 
 - The IPv4 address of the first leaf switch
+- Default
+    - 10.1.1.5
 - Sets Ansible vars
     - ``leaf1``
     - ``leaf_1``
 - Roles
-    - ``dcnm_maintenance_mode`` (reads into ``leaf_1``)
-    - ``dcnm_image_upgrade`` (reads ``leaf1`` to set ``ansible_switch_1``)
+    - ``dcnm_fabric`` deploy testcases only
+        - ``dcnm_fabric_merged_save_deploy_ipfm``
+            - ``leaf_1``
+        - ``dcnm_fabric_merged_save_deploy``
+            - ``leaf_1``
+        - ``dcnm_fabric_replaced_save_deploy``
+            - ``leaf_1``
+        - ``dcnm_fabric_replaced_save_deploy_ipfm``
+            - ``leaf_1``
+    - ``dcnm_maintenance_mode``
+        - All testcases
+            - ``leaf_1``
+        - ``00_setup_fabrics_2x_rw``
+            - ``leaf_1``
+    - ``dcnm_image_upgrade``
+        - ``01_setup_add_switches_to_fabric``
+            - reads ``leaf1`` to set ``ansible_switch_1``
+        - ``deleted_1x_switch``
+            - reads ``leaf1`` to set ``ansible_switch_1``
+        - ``deleted``
+            - reads ``leaf1`` to set ``ansible_switch_1``
+        - ``merged_global_config``
+            - reads ``leaf1`` to set ``ansible_switch_1``
+        - ``merged_override_global_config_1x_switch``
+            - reads ``leaf1`` to set ``ansible_switch_1``
+        - ``merged_override_global_config``
+            - reads ``leaf1`` to set ``ansible_switch_1``
+        - ``query``
+            - reads ``leaf1`` to set ``ansible_switch_1``
 
 ### NDFC_LEAF_2_IP4
 
 - The IPv4 address of the second leaf switch
+- Default
+    - 10.1.1.6
 - Sets Ansible vars
     - ``leaf2``
     - ``leaf_2``
 - Roles
-    - ``dcnm_maintenance_mode`` (reads ``leaf_2``)
-    - ``dcnm_image_upgrade`` (reads ``leaf2`` to set ``ansible_switch_2``)
+    - ``dcnm_fabric`` deploy testcases only
+        - ``dcnm_fabric_merged_save_deploy``
+            - ``leaf_2``
+        - ``dcnm_fabric_replaced_save_deploy``
+            - ``leaf_2``
+    - ``dcnm_maintenance_mode``
+        - All testcases
+            - ``leaf_2``
+    - ``dcnm_image_upgrade``
+        - ``01_setup_add_switches_to_fabric``
+            - reads ``leaf2`` to set ``ansible_switch_2``
+        - ``deleted``
+            - reads ``leaf2`` to set ``ansible_switch_2``
+        - ``merged_global_config``
+            - reads ``leaf2`` to set ``ansible_switch_2``
+        - ``merged_override_global_config``
+            - reads ``leaf2`` to set ``ansible_switch_2``
+        - ``query``
+            - reads ``leaf2`` to set ``ansible_switch_2``
 
 ### NDFC_LEAF_3_IP4
 
 - The IPv4 address of the third leaf switch
+- Default
+    - 10.1.1.7
 - Roles
     - Currently none
 
 ### NDFC_LEAF_4_IP4
 
 - The IPv4 address of the fourth leaf switch
+- Default
+    - 10.1.1.8
 - Roles
     - Currently none
 
 ### NDFC_SPINE_1_IP4
 
 - The IPv4 address of the first spine switch
+- Default
+    - 10.1.1.3
 - Sets ansible vars
     - ``spine1``
 - Roles
-    - ``dcnm_image_upgrade`` (reads ``spine1`` to set ``ansible_switch_3``)
+    - ``dcnm_image_upgrade``
+        - ``01_setup_add_switches_to_fabric``
+            - reads ``spine1`` to set ``ansible_switch_3``
+        - ``deleted``
+            - reads ``spine1`` to set ``ansible_switch_3``
+        - ``merged_global_config``
+            - reads ``spine1`` to set ``ansible_switch_3``
+        - ``merged_override_global_config``
+            - reads ``spine1`` to set ``ansible_switch_3``
+        - ``query``
+            - reads ``spine1`` to set ``ansible_switch_3``
 - Playbooks
     - ``dcnm_image_upgrade/dcnm_tests.yaml`` (``spine1``)
+
+### NDFC_SPINE_2_IP4
+
+- The IPv4 address of the second spine switch
+- Default
+    - 10.1.1.4
+- Sets ansible vars
+    - ``spine2``
+- Roles
+    - Currently none
+- Playbooks
+    - Currently none
 
 ### NDFC_SWITCH_1_IP4
 
