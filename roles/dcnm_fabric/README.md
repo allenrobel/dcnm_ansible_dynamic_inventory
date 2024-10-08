@@ -36,7 +36,7 @@ One of the following
 
 ## Modifications to dcnm_tests.yaml
 
-- Set the following as desired for your testcases
+Set the following as desired for your testcases
 
 ```yaml
   vars:
