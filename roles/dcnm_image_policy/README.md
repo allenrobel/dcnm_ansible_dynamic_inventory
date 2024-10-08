@@ -12,13 +12,14 @@ ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 
 ### NDFC_TESTCASE
 
-- One of the following
-    - dcnm_image_policy_deleted
-    - dcnm_image_policy_deleted_all_policies
-    - dcnm_image_policy_merged
-    - dcnm_image_policy_overridden
-    - dcnm_image_policy_query
-    - dcnm_image_policy_replaced
+One of the following
+
+- dcnm_image_policy_deleted
+- dcnm_image_policy_deleted_all_policies
+- dcnm_image_policy_merged
+- dcnm_image_policy_overridden
+- dcnm_image_policy_query
+- dcnm_image_policy_replaced
 
 ## Modifications to dcnm_tests.yaml
 

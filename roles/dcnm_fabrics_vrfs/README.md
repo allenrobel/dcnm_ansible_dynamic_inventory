@@ -12,8 +12,9 @@ ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 
 ### NDFC_TESTCASE
 
-- One of the following
-    - dcnm_fabrics_vrfs_query
+One of the following
+
+- dcnm_fabrics_vrfs_query
 
 ## Modifications to dcnm_tests.yaml
 

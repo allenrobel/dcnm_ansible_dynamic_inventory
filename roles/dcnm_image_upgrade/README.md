@@ -21,16 +21,17 @@ ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 
 ### NDFC_TESTCASE
 
-- One of the following
-    - 00_setup_create_fabric
-    - 01_setup_add_switches_to_fabric
-    - 02_setup_replace_image_policies
-    - deleted
-    - deleted_1x_switch
-    - merged_global_config
-    - merged_override_global_config
-    - merged_override_global_config_1x_switch
-    - query
+One of the following
+
+- 00_setup_create_fabric
+- 01_setup_add_switches_to_fabric
+- 02_setup_replace_image_policies
+- deleted
+- deleted_1x_switch
+- merged_global_config
+- merged_override_global_config
+- merged_override_global_config_1x_switch
+- query
 
 ## Modifications to dcnm_tests.yaml
 

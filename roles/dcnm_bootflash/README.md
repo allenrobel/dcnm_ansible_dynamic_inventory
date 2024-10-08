@@ -34,11 +34,12 @@ ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 
 ### NDFC_TESTCASE
 
-- One of the following
-    - dcnm_bootflash_deleted_specific
-    - dcnm_bootflash_deleted_wildcard
-    - dcnm_bootflash_query_specific
-    - dcnm_bootflash_query_wildcard
+One of the following
+
+- dcnm_bootflash_deleted_specific
+- dcnm_bootflash_deleted_wildcard
+- dcnm_bootflash_query_specific
+- dcnm_bootflash_query_wildcard
 
 ## Modifications to dcnm_tests.yaml
 

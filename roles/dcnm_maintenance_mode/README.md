@@ -12,18 +12,19 @@ ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 
 ### NDFC_TESTCASE
 
-- One of the following
-    - 00_setup_fabrics_1x_rw
-    - 00_setup_fabrics_2x_rw
-    - 01_merged_maintenance_mode_deploy_no_wait_switch_level
-    - 02_merged_normal_mode_deploy_no_wait_switch_level
-    - 03_merged_maintenance_mode_deploy_no_wait_top_level
-    - 04_merged_normal_mode_deploy_no_wait_top_level
-    - 05_merged_maintenance_mode_deploy_wait_top_level
-    - 06_merged_normal_mode_deploy_wait_top_level
-    - 07_merged_maintenance_mode_deploy_wait_switch_level
-    - 08_merged_normal_mode_deploy_wait_switch_level
-    - 09_merged_maintenance_mode_no_deploy
+One of the following
+
+- 00_setup_fabrics_1x_rw
+- 00_setup_fabrics_2x_rw
+- 01_merged_maintenance_mode_deploy_no_wait_switch_level
+- 02_merged_normal_mode_deploy_no_wait_switch_level
+- 03_merged_maintenance_mode_deploy_no_wait_top_level
+- 04_merged_normal_mode_deploy_no_wait_top_level
+- 05_merged_maintenance_mode_deploy_wait_top_level
+- 06_merged_normal_mode_deploy_wait_top_level
+- 07_merged_maintenance_mode_deploy_wait_switch_level
+- 08_merged_normal_mode_deploy_wait_switch_level
+- 09_merged_maintenance_mode_no_deploy
 
 ## Modifications to dcnm_tests.yaml
 
