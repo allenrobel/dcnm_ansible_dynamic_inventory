@@ -2,3 +2,4 @@
 /.pytest_cache
 /.vscode
 /roles.tgz
+.DS_Store

@@ -20,6 +20,9 @@ __metaclass__ = type
 __copyright__ = "Copyright (c) 2024 Cisco and/or its affiliates."
 __author__ = "Allen Robel"
 
+import json
+from os import environ
+
 """
 # Summary
 Dynamic inventory for DCNM Collection integration tests. Inventory
@@ -30,8 +33,6 @@ is built from environment variables.
 See README.md in the top-level of this repository and define the environment
 variables described there appropriately for your environment.
 """
-import json
-from os import environ
 
 nd_ip4 = environ.get("ND_IP4")
 nd_password = environ.get("ND_PASSWORD")
