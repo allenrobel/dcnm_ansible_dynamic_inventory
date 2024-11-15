@@ -1,4 +1,4 @@
-- name: test dcnm_fabric_requests
+- name: test dcnm_fabric_dcnm
   hosts: ndfc
   tasks:
     -   name: deleted fabrics (dcnm_send)
@@ -12,6 +12,8 @@
                  FABRIC_TYPE: VXLAN_EVPN_MSD
              -   FABRIC_NAME: LAN_Fabric
                  FABRIC_TYPE: LAN_CLASSIC
+             -   FABRIC_NAME: ISN
+                 FABRIC_TYPE: ISN
         register: result
     -   debug:
             var: result

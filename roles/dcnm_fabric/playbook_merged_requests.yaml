@@ -12,6 +12,10 @@
                  FABRIC_TYPE: VXLAN_EVPN_MSD
              -   FABRIC_NAME: LAN_Fabric
                  FABRIC_TYPE: LAN_CLASSIC
+             -   FABRIC_NAME: ISN
+                 BGP_AS: 65022
+                 EXT_FABRIC_TYPE: "Multi-Site External Network"
+                 FABRIC_TYPE: ISN
         register: result
     -   debug:
             var: result

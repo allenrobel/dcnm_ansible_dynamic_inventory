@@ -12,6 +12,8 @@
                  FABRIC_TYPE: VXLAN_EVPN_MSD
              -   FABRIC_NAME: LAN_Fabric
                  FABRIC_TYPE: LAN_CLASSIC
+             -   FABRIC_NAME: ISN
+                 FABRIC_TYPE: ISN
         register: result
     -   debug:
             var: result
