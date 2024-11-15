@@ -1,4 +1,4 @@
-- name: test dcnm_fabric_requests
+- name: test dcnm_fabric_dcnm
   hosts: ndfc
   tasks:
     -   name: query fabric (dcnm_send)
