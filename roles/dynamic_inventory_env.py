@@ -33,22 +33,22 @@ variables described there appropriately for your environment.
 import json
 from os import environ
 
-ndfc_ip4 = environ.get("NDFC_IP4")
-ndfc_password = environ.get("NDFC_PASSWORD")
-ndfc_testcase = environ.get("NDFC_TESTCASE")
-ndfc_username = environ.get("NDFC_USERNAME", "admin")
+nd_ip4 = environ.get("ND_IP4")
+nd_password = environ.get("ND_PASSWORD")
+nd_testcase = environ.get("ND_TESTCASE")
+nd_username = environ.get("ND_USERNAME", "admin")
 nxos_password = environ.get("NXOS_PASSWORD")
 nxos_username = environ.get("NXOS_USERNAME", "admin")
-bgw_1 = environ.get("NDFC_BGW_1_IP4", "10.1.1.1")
-bgw_2 = environ.get("NDFC_BGW_2_IP4", "10.1.1.2")
-leaf_1 = environ.get("NDFC_LEAF_1_IP4", "10.1.1.5")
-leaf_2 = environ.get("NDFC_LEAF_2_IP4", "10.1.1.6")
-leaf_3 = environ.get("NDFC_LEAF_3_IP4", "10.1.1.7")
-leaf_4 = environ.get("NDFC_LEAF_4_IP4", "10.1.1.8")
-spine_1 = environ.get("NDFC_SPINE_1_IP4", "10.1.1.3")
-spine_2 = environ.get("NDFC_SPINE_2_IP4", "10.1.1.4")
-switch_1 = environ.get("NDFC_SWITCH_1_IP4", "10.1.1.5")
-switch_2 = environ.get("NDFC_SWITCH_2_IP4", "10.1.1.3")
+bgw_1 = environ.get("ND_BGW_1_IP4", "10.1.1.1")
+bgw_2 = environ.get("ND_BGW_2_IP4", "10.1.1.2")
+leaf_1 = environ.get("ND_LEAF_1_IP4", "10.1.1.5")
+leaf_2 = environ.get("ND_LEAF_2_IP4", "10.1.1.6")
+leaf_3 = environ.get("ND_LEAF_3_IP4", "10.1.1.7")
+leaf_4 = environ.get("ND_LEAF_4_IP4", "10.1.1.8")
+spine_1 = environ.get("ND_SPINE_1_IP4", "10.1.1.3")
+spine_2 = environ.get("ND_SPINE_2_IP4", "10.1.1.4")
+switch_1 = environ.get("ND_SWITCH_1_IP4", "10.1.1.5")
+switch_2 = environ.get("ND_SWITCH_2_IP4", "10.1.1.3")
 
 output = {
     "_meta": {"hostvars": {}},
@@ -57,9 +57,9 @@ output = {
         "vars": {
             "ansible_httpapi_use_ssl": "true",
             "ansible_httpapi_validate_certs": "false",
-            "ansible_password": ndfc_password,
+            "ansible_password": nd_password,
             "ansible_python_interpreter": "python",
-            "ansible_user": ndfc_username,
+            "ansible_user": nd_username,
             "bgw1": bgw_1,
             "bgw2": bgw_2,
             "leaf1": leaf_1,
@@ -76,18 +76,18 @@ output = {
             "spine2": spine_2,
             "switch1": switch_1,
             "switch2": switch_2,
-            "testcase": ndfc_testcase
+            "testcase": nd_testcase
         },
     },
     "dcnm": {
-        "hosts": [ndfc_ip4],
+        "hosts": [nd_ip4],
         "vars": {
             "ansible_connection": "ansible.netcommon.httpapi",
             "ansible_network_os": "cisco.dcnm.dcnm",
         },
     },
     "ndfc": {
-        "hosts": [ndfc_ip4],
+        "hosts": [nd_ip4],
         "vars": {
             "ansible_connection": "ansible.netcommon.httpapi",
             "ansible_network_os": "cisco.dcnm.dcnm",

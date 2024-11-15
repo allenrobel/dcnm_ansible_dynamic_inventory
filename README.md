@@ -1,23 +1,32 @@
-# Usage for playbooks/roles/*
+# Example usage for playbooks/roles/*
 
 ```bash
-cd ansible_collections/cisco/dcnm/playbooks/roles/ROLE_NAME
-ansible-playbook dcnm_tests.yaml -i ../dynamic_inventory_env.py
+export ND_ROLES_HOME=$HOME/repos/ansible_dev/dcnm_ansible_dynamic_inventory
+export ANSIBLE_INVENTORY=$ND_ROLES_HOME/dynamic_inventory_env.py
+cd $ND_ROLES_HOME/roles/ROLE_NAME
+ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 ```
 
-``dynamic_inventory_env.py`` expects the following environment variables to be defined.
+## dynamic inventory
 
-If an environment variable is not defined, and a default is defined below, then the default will be used.
+These roles use a dynamic inventory generated with:
+
+$ND_ROLES_HOME/dynamic_inventory_env.py
+
+This inventory script expects the following environment variables to be defined.
+
+If an environment variable is not defined, and a default is defined below,
+then the script assigns that default.
 
 ## Environment variables used in most roles
 
-### NDFC_IP4
+### ND_IP4
 
 - The IPv4 address of the ND/NDFC controller
 - Roles
     - all
 
-### NDFC_PASSWORD
+### ND_PASSWORD
 
 - The password for the ND/NDFC controller
 - Roles
@@ -30,7 +39,7 @@ If an environment variable is not defined, and a default is defined below, then 
     - dcnm_maintenance_mode
         - ``nxos_password``
 
-### NDFC_TESTCASE
+### ND_TESTCASE
 
 - The testcase to run
 - Roles
@@ -40,7 +49,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Notes
     - See README.md in each role directory for list of testcases for that role
 
-### NDFC_USERNAME
+### ND_USERNAME
 
 - The username for the ND/NDFC controller
 - Default
@@ -57,7 +66,7 @@ If an environment variable is not defined, and a default is defined below, then 
 
 ## Environment variables used in a subset of roles
 
-### NDFC_BGW_1_IP4
+### ND_BGW_1_IP4
 
 - The IPv4 address of the first BGW switch
 - Default
@@ -65,7 +74,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Roles
     - Currently none
 
-### NDFC_BGW_2_IP4
+### ND_BGW_2_IP4
 
 - The IPv4 address of the second BGW switch
 - Default
@@ -73,7 +82,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Roles
     - Currently none
 
-### NDFC_LEAF_1_IP4
+### ND_LEAF_1_IP4
 
 - The IPv4 address of the first leaf switch
 - Default
@@ -112,7 +121,7 @@ If an environment variable is not defined, and a default is defined below, then 
         - ``query``
             - reads ``leaf1`` to set ``ansible_switch_1``
 
-### NDFC_LEAF_2_IP4
+### ND_LEAF_2_IP4
 
 - The IPv4 address of the second leaf switch
 - Default
@@ -141,7 +150,7 @@ If an environment variable is not defined, and a default is defined below, then 
         - ``query``
             - reads ``leaf2`` to set ``ansible_switch_2``
 
-### NDFC_LEAF_3_IP4
+### ND_LEAF_3_IP4
 
 - The IPv4 address of the third leaf switch
 - Default
@@ -149,7 +158,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Roles
     - Currently none
 
-### NDFC_LEAF_4_IP4
+### ND_LEAF_4_IP4
 
 - The IPv4 address of the fourth leaf switch
 - Default
@@ -157,7 +166,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Roles
     - Currently none
 
-### NDFC_SPINE_1_IP4
+### ND_SPINE_1_IP4
 
 - The IPv4 address of the first spine switch
 - Default
@@ -179,7 +188,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Playbooks
     - ``dcnm_image_upgrade/dcnm_tests.yaml`` (``spine1``)
 
-### NDFC_SPINE_2_IP4
+### ND_SPINE_2_IP4
 
 - The IPv4 address of the second spine switch
 - Default
@@ -191,7 +200,7 @@ If an environment variable is not defined, and a default is defined below, then 
 - Playbooks
     - Currently none
 
-### NDFC_SWITCH_1_IP4
+### ND_SWITCH_1_IP4
 
 - The IPv4 address of the first switch
 - Roles
@@ -201,7 +210,7 @@ If an environment variable is not defined, and a default is defined below, then 
     - ``dcnm_bootflash/delete_files.yaml`` (``switch1``)
     - ``dcnm_bootflash/dcnm_tests.yaml`` (``switch1``)
 
-### NDFC_SWITCH_2_IP4
+### ND_SWITCH_2_IP4
 
 - The IPv4 address of the second switch
 - Roles
@@ -237,20 +246,20 @@ If an environment variable is not defined, and a default is defined below, then 
 ## Example for bash shells
 
 ```bash
-export NDFC_IP4=10.1.1.1
-export NDFC_PASSWORD=my_ndfc_password
-export NDFC_TESTCASE=dcnm_fabric_merged_basic
-export NDFC_USERNAME=my_ndfc_username
+export ND_IP4=10.1.1.1
+export ND_PASSWORD=my_nd_password
+export ND_TESTCASE=dcnm_fabric_merged_basic
+export ND_USERNAME=my_nd_username
 export NXOS_PASSWORD=my_nxos_password
 export NXOS_USERNAME=my_nxos_username
-export NDFC_BGW_1_IP4=10.1.1.2
-export NDFC_BGW_2_IP4=10.1.1.3
-export NDFC_LEAF_1_IP4=10.1.1.4
-export NDFC_LEAF_2_IP4=10.1.1.5
-export NDFC_LEAF_3_IP4=10.1.1.6
-export NDFC_LEAF_4_IP4=10.1.1.7
-export NDFC_SPINE_1_IP4=10.1.1.8
-export NDFC_SPINE_2_IP4=10.1.1.9
-export NDFC_SWITCH_1_IP4=10.1.1.4
-export NDFC_SWITCH_2_IP4=10.1.1.5
+export ND_BGW_1_IP4=10.1.1.2
+export ND_BGW_2_IP4=10.1.1.3
+export ND_LEAF_1_IP4=10.1.1.4
+export ND_LEAF_2_IP4=10.1.1.5
+export ND_LEAF_3_IP4=10.1.1.6
+export ND_LEAF_4_IP4=10.1.1.7
+export ND_SPINE_1_IP4=10.1.1.8
+export ND_SPINE_2_IP4=10.1.1.9
+export ND_SWITCH_1_IP4=10.1.1.4
+export ND_SWITCH_2_IP4=10.1.1.5
 ```
