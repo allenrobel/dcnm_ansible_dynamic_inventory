@@ -23,7 +23,7 @@
   connection: ansible.netcommon.httpapi
 
   vars:
-    # Uncomment ONE of the following testcases to override NDFC_TESTCASE environment variable
+    # Uncomment ONE of the following testcases to override ND_TESTCASE environment variable
     # testcase: dcnm_fabric_deleted_basic
     # testcase: dcnm_fabric_deleted_basic_ipfm
     # testcase: dcnm_fabric_deleted_basic_isn

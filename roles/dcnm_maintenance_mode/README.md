@@ -4,13 +4,13 @@
 
 ```bash
 export ANSIBLE_INVENTORY=/path/to/dynamic_inventory_env.py
-export NDFC_TESTCASE=00_setup_fabrics_1x_rw
+export ND_TESTCASE=00_setup_fabrics_1x_rw
 ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 ```
 
 ## Role-specific environment variables
 
-### NDFC_TESTCASE
+### ND_TESTCASE
 
 One of the following
 

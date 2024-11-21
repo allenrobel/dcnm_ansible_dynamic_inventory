@@ -12,7 +12,7 @@
   connection: ansible.netcommon.httpapi
 
   vars:
-    # Uncomment ONE testcase to override environment variable NDFC_TESTCASE
+    # Uncomment ONE testcase to override environment variable ND_TESTCASE
     # testcase: 00_setup_create_fabric
     # testcase: 01_setup_add_switches_to_fabric
     # testcase: 02_setup_replace_image_policies
@@ -22,17 +22,19 @@
     # testcase: merged_override_global_config
     # testcase: merged_override_global_config_1x_switch
     # testcase: query
-    # Uncomment to override environment variable NDFC_LEAF_1
+    # Uncomment to override environment variable ND_LEAF_1
     # leaf1: 172.22.150.103
-    # Uncomment to override environment variable NDFC_LEAF_2
+    # Uncomment to override environment variable ND_LEAF_2
     # leaf2: 172.22.150.104
-    # Uncomment to override environment variable NDFC_SPINE_1
+    # Uncomment to override environment variable ND_SPINE_1
     # spine1: 172.22.150.113
     # for dcnm_image_policy and dcnm_image_upgrade roles
     fabric_name: LAN_Classic_Fabric
     image_policy_1: NR1F
     image_policy_2: NR2F
     # for dcnm_image_policy role
+    install_package_1: cfg_cmp-0.3.1.0-1.x86_64.rpm
+    uninstall_package_1: mtx-grpctunnel-2.1.0.0-10.4.1.lib32_64_n9000
     epld_image_1: n9000-epld.10.3.1.F.img
     epld_image_2: n9000-epld.10.3.1.F.img
     nxos_image_1: nxos64-cs.10.3.1.F.bin

@@ -14,7 +14,6 @@
                  FABRIC_TYPE: LAN_CLASSIC
              -   FABRIC_NAME: ISN
                  BGP_AS: 65022
-                 EXT_FABRIC_TYPE: "Multi-Site External Network"
                  FABRIC_TYPE: ISN
         register: result
     -   debug:

@@ -4,22 +4,22 @@
 
 ```bash
 export ANSIBLE_INVENTORY=/path/to/dynamic_inventory_env.py
-export NDFC_TESTCASE=00_setup_create_fabric
+export ND_TESTCASE=00_setup_create_fabric
 ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
 ```
 
 ## Role-specific environment variables
 
-### NDFC_LEAF_1_IP4
+### ND_LEAF_1_IP4
 - Read into ansible_switch_1
 
-### NDFC_LEAF_2_IP4
+### ND_LEAF_2_IP4
 - Read into ansible_switch_2
 
-### NDFC_SPINE_1_IP4
+### ND_SPINE_1_IP4
 - Read into ansible_switch_3
 
-### NDFC_TESTCASE
+### ND_TESTCASE
 
 One of the following
 
@@ -44,6 +44,9 @@ Set the following as desired for your testcases
     image_policy_1: NR1F
     image_policy_2: NR2F
     # for dcnm_image_policy role
+    # install_package_1 must be uploaded to the controller
+    install_package_1: cfg_cmp-0.3.1.0-1.x86_64.rpm
+    uninstall_package_1: mtx-grpctunnel-2.1.0.0-10.4.1.lib32_64_n9000
     epld_image_1: n9000-epld.10.3.1.F.img
     epld_image_2: n9000-epld.10.3.1.F.img
     nxos_image_1: nxos64-cs.10.3.1.F.bin

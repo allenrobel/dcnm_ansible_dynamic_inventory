@@ -16,7 +16,7 @@
   connection: ansible.netcommon.httpapi
 
   vars:
-    # Uncomment ONE testcase to override environment variable NDFC_TESTCASE
+    # Uncomment ONE testcase to override environment variable ND_TESTCASE
     # testcase: dcnm_image_policy_deleted
     # testcase: dcnm_image_policy_deleted_all_policies
     # testcase: dcnm_image_policy_merged
@@ -25,6 +25,8 @@
     # testcase: dcnm_image_policy_replaced
     #
     # for dcnm_image_policy role
+    install_package_1: cfg_cmp-0.3.1.0-1.x86_64.rpm
+    uninstall_package_1: mtx-grpctunnel-2.1.0.0-10.4.1.lib32_64_n9000
     image_policy_1: "KR5M"
     image_policy_2: "NR1F"
     epld_image_1: n9000-epld.10.2.5.M.img
