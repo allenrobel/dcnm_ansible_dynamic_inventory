@@ -1,0 +1,17 @@
+---
+# This playbook can be used to execute integration tests for
+# the roles located in:
+#
+# ./tests/integration/targets/dcnm_vrf_v2/tests/*.yaml
+#
+# It is intended for use with a dynamic inventory.
+#
+# Usage
+#
+# ansible-playbook tests.yaml -i ../dynamic_inventory_env.py
+#
+- hosts: ndfc
+  gather_facts: no
+  connection: ansible.netcommon.httpapi
+  roles:
+    - nd_vrf

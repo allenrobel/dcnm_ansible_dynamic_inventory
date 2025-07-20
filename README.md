@@ -1,7 +1,7 @@
 # Example usage for playbooks/roles/*
 
 ```bash
-export ND_ROLES_HOME=$HOME/repos/ansible_dev/dcnm_ansible_dynamic_inventory
+export ND_ROLES_HOME=$HOME/repos/ansible/dcnm_ansible_dynamic_inventory
 export ANSIBLE_INVENTORY=$ND_ROLES_HOME/dynamic_inventory_env.py
 cd $ND_ROLES_HOME/roles/ROLE_NAME
 ansible-playbook dcnm_tests.yaml -i $ANSIBLE_INVENTORY
