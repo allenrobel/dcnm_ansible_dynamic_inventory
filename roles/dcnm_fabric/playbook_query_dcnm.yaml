@@ -6,6 +6,10 @@
             state: query
             config:
               - FABRIC_NAME: f1
+              - FABRIC_NAME: LAN_Fabric
+              - FABRIC_NAME: MSD_Fabric
+              - FABRIC_NAME: VXLAN_Fabric
+              - FABRIC_NAME: ISN
         register: result
     -   debug:
             var: result
