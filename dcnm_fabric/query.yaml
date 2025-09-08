@@ -1,0 +1,22 @@
+- name: dcnm_fabric query
+  hosts: ndfc
+  gather_facts: false
+  vars:
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+    ansible_command_timeout: 3
+
+    ansible_httpapi_session_key: null
+    ansible_persistent_connect_timeout: 1
+    ansible_persistent_command_timeout: 1
+  tasks:
+    -   name: query fabric (dcnm_send)
+        cisco.dcnm.dcnm_fabric:
+            state: query
+            config:
+              - FABRIC_NAME: SITE1
+              - FABRIC_NAME: SITE2
+              - FABRIC_NAME: MSD
+        register: result
+    -   debug:
+            var: result
