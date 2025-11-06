@@ -1,0 +1,31 @@
+---
+# This playbook can be used to execute integration tests for
+# the roles located in:
+#
+# ./tests/integration/targets/dcnm_fabric_group/tests/*.yaml
+#
+# Modify the vars section with details for your testing setup.
+#
+# Usage
+#
+# ansible-playbook dcnm_tests.yaml -i ../dynamic_inventory_env.py
+#
+# NOTES:
+# 1. For all test cases, ensure that
+#    Fabric Controller -> Admin -> System Settings -> Feature Management
+#    "Fabric Builder" is checked.
+- hosts: dcnm
+  gather_facts: no
+  connection: ansible.netcommon.httpapi
+
+  vars:
+    # Uncomment ONE of the following testcases to override ND_TESTCASE environment variable
+    # testcase: dcnm_fabric_group_deleted_basic
+    # testcase: dcnm_fabric_group_merged_create_basic
+    # testcase: dcnm_fabric_group_merged_update_basic
+    # testcase: dcnm_fabric_group_query_basic
+    fabric_group_name_1: MCFG1
+    fabric_name_1: SITE1
+
+  roles:
+    - dcnm_fabric_group
