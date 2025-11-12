@@ -1,0 +1,23 @@
+---
+-   hosts: nd
+    check_mode: false
+    gather_facts: false
+    tasks:
+    - name: MERGED - TEST - Create all supported fabric types with minimal config
+      cisco.dcnm.dcnm_fabric:
+        state: merged
+        config:
+          - FABRIC_NAME: IPFM
+            FABRIC_TYPE: IPFM
+            ENABLE_ASM: true
+            ASM_GROUP_RANGES: "{\"ASM_GROUP_RANGES\":[{\"GROUP_ADDRESS\":\"224.0.0.0\",\"PREFIX\":\"4\",\"ENABLE_SPT_THRESHOLD\":\"true\"},{\"GROUP_ADDRESS\":\"239.1.1.0\",\"PREFIX\":\"24\",\"ENABLE_SPT_THRESHOLD\":\"false\"}]}"
+              # - GROUP_ADDRESS: 224.0.0.0
+              #   PREFIX: "4"
+              #   ENABLE_SPT_THRESHOLD: "true"
+              # - GROUP_ADDRESS: 239.1.1.0
+              #   PREFIX: "24"
+              #   ENABLE_SPT_THRESHOLD: "false" 
+            DEPLOY: true
+      register: result
+    - debug:
+        var: result
