@@ -3,3 +3,7 @@
 /.vscode
 /roles.tgz
 .DS_Store
+
+# production environment variables
+
+prod_env/
