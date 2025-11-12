@@ -1,0 +1,14 @@
+export REPOS=$HOME/repos
+export ANSIBLE_HOME=$REPOS/ansible
+export ANSIBLE_COLLECTIONS_PATH=$ANSIBLE_HOME/collections
+export ANSIBLE_DEV_HOME=$ANSIBLE_COLLECTIONS_PATH/ansible_collections/ansible
+export ANSIBLE_CISCO_PATH=$ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco
+export ANSIBLE_DCNM_PATH=$ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco/dcnm
+export ANSIBLE_ND_PATH=$ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco/nd
+export ANSIBLE_ROLES_PATH=$ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco/dcnm/tests/integration/targets
+export ANSIBLE_PERSISTENT_COMMAND_TIMEOUT=1200
+export ANSIBLE_PERSISTENT_CONNECT_TIMEOUT=1200
+export ND_PASSWORD=MySecretPassword
+export ND_USERNAME=admin
+export NXOS_PASSWORD=MySecretPassword
+export NXOS_USERNAME=admin
