@@ -14,7 +14,7 @@
 # 1. For all test cases, ensure that
 #    Fabric Controller -> Admin -> System Settings -> Feature Management
 #    "Fabric Builder" is checked.
-- hosts: dcnm
+- hosts: ndfc
   gather_facts: no
   connection: ansible.netcommon.httpapi
 
