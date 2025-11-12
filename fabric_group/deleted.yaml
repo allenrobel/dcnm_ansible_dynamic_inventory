@@ -1,0 +1,20 @@
+- name: dcnm_fabric_group delete
+  hosts: ndfc
+  gather_facts: false
+  vars:
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+    ansible_command_timeout: 300
+
+    ansible_httpapi_session_key: null
+    ansible_persistent_connect_timeout: 300
+    ansible_persistent_command_timeout: 300
+  tasks:
+    -   name: delete fabric group (dcnm_send)
+        cisco.dcnm.dcnm_fabric_group:
+            state: deleted
+            config:
+              - FABRIC_NAME: MCFG1
+        register: result
+    -   debug:
+            var: result

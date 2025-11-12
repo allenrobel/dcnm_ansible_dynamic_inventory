@@ -1,0 +1,24 @@
+- name: dcnm_fabric_group merged
+  hosts: ndfc
+  gather_facts: false
+  vars:
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+
+    ansible_httpapi_session_key: null
+    ansible_persistent_connect_timeout: 10
+    ansible_persistent_command_timeout: 300
+    ansible_command_timeout: 300
+  tasks:
+    -   name: merged fabric group (dcnm_send)
+        cisco.dcnm.dcnm_fabric_group:
+            state: merged
+            config:
+              - ANYCAST_GW_MAC: 2020.0000.00bb
+                TOR_AUTO_DEPLOY: false
+                LOOPBACK100_IP_RANGE: 10.10.0.0/24
+                FABRIC_NAME: MCFG1
+                FABRIC_TYPE: MCFG
+        register: result
+    -   debug:
+            var: result

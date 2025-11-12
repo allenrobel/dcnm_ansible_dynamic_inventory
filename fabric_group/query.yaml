@@ -1,0 +1,21 @@
+- name: dcnm_fabric_group query
+  hosts: ndfc
+  gather_facts: false
+  vars:
+    login_domain: "radius"
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+    ansible_command_timeout: 3
+
+    ansible_httpapi_session_key: null
+    ansible_persistent_connect_timeout: 1
+    ansible_persistent_command_timeout: 1
+  tasks:
+    -   name: query fabric group (dcnm_send)
+        cisco.dcnm.dcnm_fabric_group:
+            state: query
+            config:
+              - FABRIC_NAME: MCFG1
+        register: result
+    -   debug:
+            var: result
