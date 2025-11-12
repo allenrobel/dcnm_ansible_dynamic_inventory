@@ -1,0 +1,11 @@
+---
+homelab:
+  hosts:
+    ndfc:
+      ansible_host: 192.168.7.8
+      ansible_httpapi_login_domain: radius
+    nd:
+      ansible_host: 192.168.7.7
+      ansible_httpapi_login_domain: radius
+    ndfc_mock:
+      ansible_host: localhost

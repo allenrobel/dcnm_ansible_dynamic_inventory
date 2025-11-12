@@ -1,0 +1,24 @@
+ansible_connection: ansible.netcommon.httpapi
+ansible_network_os: cisco.dcnm.dcnm
+ansible_httpapi_validate_certs: no
+ansible_user: admin
+device_username: admin
+device_password: lab-1324
+ansible_password: lab-1324
+
+# For NDFC Mock in a container, uncomment these options
+# and ensure that your playbook hosts parameter is set to
+# ndfc_mock
+# ansible_httpapi_use_ssl: no
+# ansible_httpapi_port: 8080
+
+# For NDFC Mock outside a container, uncomment these options
+# and ensure that your playbook hosts parameter is set to
+# ndfc_mock
+# ansible_httpapi_use_ssl: no
+# ansible_httpapi_port: 8000
+
+# For real NDFC, uncomment these options and ensure that
+# your playbook hosts parameter is set to ndfc_real
+ansible_httpapi_use_ssl: yes
+ansible_httpapi_port: 443
