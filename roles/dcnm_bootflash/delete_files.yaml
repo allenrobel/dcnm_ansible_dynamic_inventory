@@ -1,11 +1,11 @@
 ---
 - gather_facts: false
   hosts:
-    - switch1
+    - switch_1
   tasks:
     - name: Load nxos_vars
       ansible.builtin.include_vars: nxos_vars.yaml
-    - name: SETUP - Delete files on {{ switch1 }}
+    - name: SETUP - Delete files on {{ switch_1 }}
       cisco.nxos.nxos_command:
         commands:
           - terminal dont-ask
@@ -16,11 +16,11 @@
 
 - gather_facts: false
   hosts:
-    - switch2
+    - switch_2
   tasks:
     - name: Load nxos_vars
       ansible.builtin.include_vars: nxos_vars.yaml
-    - name: SETUP - Delete files on {{ switch2 }}
+    - name: SETUP - Delete files on {{ switch_2 }}
       cisco.nxos.nxos_command:
         commands:
           - terminal dont-ask

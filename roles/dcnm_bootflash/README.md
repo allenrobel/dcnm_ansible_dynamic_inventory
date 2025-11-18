@@ -1,5 +1,25 @@
 # Usage for playbooks/roles/dcnm_bootflash
 
+## Installing libssh
+
+On MacOS, you will need to install ansible-libssh so that ansible can use ssh to connect to the switches directly.
+
+This requires that we install libssh via homebrew
+
+```bash
+brew install libssh
+```
+
+We also need to tell the build system where to look for the library header files, etc, before invoking `uv add ansible-pylibssh`.
+
+```bash
+export CFLAGS="-I/opt/homebrew/include"
+export LDFLAGS="-L/opt/homebrew/lib"
+uv add ansible-pylibssh
+```
+
+With that out of the way, we can run the create_files.yaml playbook.
+
 ## Create files on switch bootflash (in preparation for integration tests)
 
 ```bash
@@ -59,9 +79,9 @@ One of the following
     # Uncomment to override environment variable ND_PASSWORD
     # switch_password: my_switch_password
     # Uncomment to override environment variable ND_SWITCH_1_IP4
-    # switch1: 10.1.1.1
+    # switch_1: 192.168.12.151
     # Uncomment to override environment variable ND_SWITCH_2_IP4
-    # switch2: 10.1.1.2
+    # switch_2: 192.168.12.141
     # The vars below are included in the role's defaults/main.yaml
     # If it is desired to override the defaults, uncomment and
     # modify these.

@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # pylint: disable=line-too-long,too-few-public-methods
+
 """
 # Summary
 
@@ -52,7 +53,6 @@ We can add more fabrics later as the need arises...
 export ND_FABRIC_1=MyFabric1   # Assigned to var fabric_1
 export ND_FABRIC_2=MyFabric2   # Assigned to var fabric_2
 export ND_FABRIC_3=MyFabric3   # Assigned to var fabric_3
-
 ```
 
 ### Interfaces
@@ -123,7 +123,7 @@ def _default_children() -> list[str]:
     children.extend(["bgw_1", "bgw_2", "bgw1", "bgw2"])
     children.extend(["spine_1", "spine_2", "spine1", "spine2"])
     children.extend(["leaf_1", "leaf_2", "leaf_3", "leaf_4", "leaf1", "leaf2", "leaf3", "leaf4"])
-    children.extend(["switch1", "switch2", "switch3", "switch4"])
+    children.extend(["switch_1", "switch_2", "switch_3", "switch_4"])
     return children
 
 
@@ -189,6 +189,21 @@ class ConfigTestFabric:
     fabric_1: str = environ.get("ND_FABRIC_1", "SITE1")
     fabric_2: str = environ.get("ND_FABRIC_2", "SITE2")
     fabric_3: str = environ.get("ND_FABRIC_3", "SITE3")
+    fabric_4: str = environ.get("ND_FABRIC_4", "SITE4")
+
+
+@dataclass
+class ConfigTestFabricSite12:
+    """Fabric environment variable config container."""
+    fabric_1: str = environ.get("ND_FABRIC_1", "SITE1")
+    fabric_2: str = environ.get("ND_FABRIC_2", "SITE2")
+
+
+@dataclass
+class ConfigTestFabricSite34:
+    """Fabric environment variable config container."""
+    fabric_1: str = environ.get("ND_FABRIC_3", "SITE3")
+    fabric_2: str = environ.get("ND_FABRIC_4", "SITE4")
 
 
 @dataclass
@@ -266,32 +281,137 @@ class ConfigTestSwitchBgw:
 
 
 @dataclass
-class ConfigTestSwitchSpine:
+class ConfigTestSwitchSpineAll:
     """
     # Summary
 
-    Spine switch IP environment variable config container.
+    SITE12 - Spines
+    SITE34 - Spines
 
     ## Notes
 
     - spine_1: vrf-lite capable
     - spine_2: vrf-lite capable
     """
-    switch_1_ip4: str = environ.get("ND_SPINE_1_IP4", "192.168.14.21")
-    switch_2_ip4: str = environ.get("ND_SPINE_2_IP4", "192.168.14.22")
+    switch_1_ip4: str = environ.get("ND_SPINE_1_IP4", "192.168.12.141")
+    switch_2_ip4: str = environ.get("ND_SPINE_2_IP4", "192.168.12.142")
+    switch_3_ip4: str = environ.get("ND_SPINE_3_IP4", "192.168.14.141")
+    switch_4_ip4: str = environ.get("ND_SPINE_4_IP4", "192.168.14.142")
 
 
 @dataclass
-class ConfigTestSwitchLeaf:
+class ConfigTestSwitchSpineSite1:
     """
     # Summary
 
-    Leaf switch IP environment variable config container.
+    SITE1 - Spine switches
+
+    ## Notes
+
+    - spine_1: vrf-lite capable
     """
-    switch_1_ip4: str = environ.get("ND_LEAF_1_IP4", "192.168.14.51")
-    switch_2_ip4: str = environ.get("ND_LEAF_2_IP4", "192.168.14.52")
-    switch_3_ip4: str = environ.get("ND_LEAF_3_IP4", "192.168.14.53")
-    switch_4_ip4: str = environ.get("ND_LEAF_4_IP4", "192.168.14.54")
+    switch_1_ip4: str = environ.get("ND_SPINE_1_IP4", "192.168.12.141")
+
+
+@dataclass
+class ConfigTestSwitchSpineSite2:
+    """
+    # Summary
+
+    SITE2 - Spine switches
+
+    ## Notes
+
+    - spine_1: vrf-lite capable
+    """
+    switch_1_ip4: str = environ.get("ND_SPINE_2_IP4", "192.168.12.142")
+
+
+@dataclass
+class ConfigTestSwitchSpineSite12:
+    """
+    # Summary
+
+    SITE12 Spine switches
+
+    ## Notes
+
+    - spine_1: vrf-lite capable
+    - spine_2: vrf-lite capable
+    """
+    switch_1_ip4: str = environ.get("ND_SPINE_1_IP4", "192.168.12.141")
+    switch_2_ip4: str = environ.get("ND_SPINE_2_IP4", "192.168.12.142")
+
+
+@dataclass
+class ConfigTestSwitchSpineSite34:
+    """
+    # Summary
+
+    SITE34 Spine switches
+
+    ## Notes
+
+    - spine_1: vrf-lite capable
+    - spine_2: vrf-lite capable
+    """
+    switch_1_ip4: str = environ.get("ND_SPINE_3_IP4", "192.168.14.141")
+    switch_2_ip4: str = environ.get("ND_SPINE_4_IP4", "192.168.14.142")
+
+
+@dataclass
+class ConfigTestSwitchLeafAll:
+    """
+    # Summary
+
+    SITE12 leaf switches
+    SITE34 leaf switches
+    """
+    switch_1_ip4: str = environ.get("ND_LEAF_1_IP4", "192.168.12.151")
+    switch_2_ip4: str = environ.get("ND_LEAF_2_IP4", "192.168.12.152")
+    switch_3_ip4: str = environ.get("ND_LEAF_3_IP4", "192.168.14.151")
+    switch_4_ip4: str = environ.get("ND_LEAF_4_IP4", "192.168.14.152")
+
+
+@dataclass
+class ConfigTestSwitchLeafSite12:
+    """
+    # Summary
+
+    SITE12 Leaf switches
+    """
+    switch_1_ip4: str = environ.get("ND_LEAF_1_IP4", "192.168.12.151")
+    switch_2_ip4: str = environ.get("ND_LEAF_2_IP4", "192.168.12.152")
+
+
+@dataclass
+class ConfigTestSwitchLeafSite1:
+    """
+    # Summary
+
+    SITE1 Leaf switches
+    """
+    switch_1_ip4: str = environ.get("ND_LEAF_1_IP4", "192.168.12.151")
+
+@dataclass
+class ConfigTestSwitchLeafSite2:
+    """
+    # Summary
+
+    SITE2 Leaf switches
+    """
+    switch_1_ip4: str = environ.get("ND_LEAF_2_IP4", "192.168.12.152")
+
+
+@dataclass
+class ConfigTestSwitchLeafSite34:
+    """
+    # Summary
+
+    SITE34 leaf switches
+    """
+    switch_3_ip4: str = environ.get("ND_LEAF_3_IP4", "192.168.14.151")
+    switch_4_ip4: str = environ.get("ND_LEAF_4_IP4", "192.168.14.152")
 
 
 @dataclass
@@ -370,10 +490,21 @@ class ConfigHostsNxos:
 
 
 @dataclass
+class ConfigTestcaseDcnmBootflash:
+    """dcnm_bootflash testcase specific environment variable config holder."""
+    _fabrics = ConfigTestFabricSite12()
+    _leafs = ConfigTestSwitchLeafSite1()
+    _spines = ConfigTestSwitchSpineSite1()
+
+    fabric_1: str = _fabrics.fabric_1
+    switch_1: str = _leafs.switch_1_ip4
+    switch_2: str = _spines.switch_1_ip4
+
+@dataclass
 class ConfigTestcaseDcnmNetwork:
     """dcnm_vrf testcase specific environment variable config holder."""
     _fabrics = ConfigTestFabric()
-    _switches = ConfigTestSwitchLeaf()
+    _switches = ConfigTestSwitchLeafAll()
     _vrfs = ConfigTestVrf()
 
     fabric_1: str = _fabrics.fabric_1
@@ -471,8 +602,8 @@ config_test_fabric = ConfigTestFabric()
 config_test_fabric_group = ConfigTestFabricGroup()
 config_test_switch = ConfigTestSwitch()
 config_test_switch_bgw = ConfigTestSwitchBgw()
-config_test_switch_spine = ConfigTestSwitchSpine()
-config_test_switch_leaf = ConfigTestSwitchLeaf()
+config_test_switch_spine = ConfigTestSwitchSpineAll()
+config_test_switch_leaf = ConfigTestSwitchLeafAll()
 config_test_vrf = ConfigTestVrf()
 
 fabric_1 = config_test_fabric.fabric_1
@@ -507,9 +638,19 @@ interface_2c = environ.get("ND_INTERFACE_2c", "Ethernet1/3")
 interface_2d = environ.get("ND_INTERFACE_2d", "Ethernet1/4")
 interface_3a = environ.get("ND_INTERFACE_3a", "Ethernet1/3")
 
+# Base set of VRFs
+
+vrf_1 = "vrf-1"
+vrf_2 = "vrf-2"
+
 testcase: object
 role = config_test_runner.nd_role
 match role:
+    case "dcnm_bootflash":
+        testcase = ConfigTestcaseDcnmBootflash()
+        fabric_1 = testcase.fabric_1
+        switch_1 = testcase.switch_1
+        switch_2 = testcase.switch_2
     case "dcnm_vrf":
         testcase = ConfigTestcaseDcnmVrf()
         fabric_1 = testcase.fabric_1
@@ -623,10 +764,10 @@ output = {
     "leaf4": {"hosts": [config_test_switch_leaf.switch_4_ip4]},
     "spine1": {"hosts": [config_test_switch_spine.switch_1_ip4]},
     "spine2": {"hosts": [config_test_switch_spine.switch_2_ip4]},
-    "switch1": {"hosts": [config_test_switch_leaf.switch_1_ip4]},
-    "switch2": {"hosts": [config_test_switch_leaf.switch_2_ip4]},
-    "switch3": {"hosts": [config_test_switch_leaf.switch_3_ip4]},
-    "switch4": {"hosts": [config_test_switch_leaf.switch_4_ip4]},
+    "switch_1": {"hosts": [switch_1]},
+    "switch_2": {"hosts": [switch_2]},
+    "switch_3": {"hosts": [config_test_switch_leaf.switch_3_ip4]},
+    "switch_4": {"hosts": [config_test_switch_leaf.switch_4_ip4]},
 }
 
 print(json.dumps(output, indent=4, sort_keys=True))
