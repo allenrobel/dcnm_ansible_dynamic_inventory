@@ -493,10 +493,10 @@ class ConfigHostsNxos:
 class ConfigTestcaseDcnmBootflash:
     """dcnm_bootflash testcase specific environment variable config holder."""
     _fabrics = ConfigTestFabricSite12()
-    _leafs = ConfigTestSwitchLeafSite1()
-    _spines = ConfigTestSwitchSpineSite1()
+    _leafs = ConfigTestSwitchLeafSite2()
+    _spines = ConfigTestSwitchSpineSite2()
 
-    fabric_1: str = _fabrics.fabric_1
+    fabric_1: str = _fabrics.fabric_2
     switch_1: str = _leafs.switch_1_ip4
     switch_2: str = _spines.switch_1_ip4
 
