@@ -499,6 +499,8 @@ class ConfigTestcaseDcnmBootflash:
     fabric_1: str = _fabrics.fabric_2
     switch_1: str = _leafs.switch_1_ip4
     switch_2: str = _spines.switch_1_ip4
+    switch1: str = _leafs.switch_1_ip4
+    switch2: str = _spines.switch_1_ip4
 
 @dataclass
 class ConfigTestcaseDcnmNetwork:
